@@ -6,5 +6,7 @@ pick me app - phonegap and ionic based application for interactive cologne hacke
 
 To run on your android device:
 
-> ionic platform add android
-> ionic run android
+```sh
+$ ionic platform add android
+$ ionic run android
+```
