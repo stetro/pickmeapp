@@ -1,3 +1,5 @@
 node_modules/
 ant-build/
-platforms/android/assets/
+platforms/android/
+plugins/android.json
+
