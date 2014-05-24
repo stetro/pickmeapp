@@ -3,3 +3,10 @@ textarea {
 }
 
 /* Empty. Add your own CSS if you like */
+
+.flag-button.icon:before {
+    font-size: 62px;
+    color: rgb(190, 75, 153);
+    margin-top: 8rem;
+}
+
