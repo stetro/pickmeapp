@@ -92,7 +92,7 @@ function onNotification(e) {
         case 'registered':
 
             console.log("REGISTERED !!!");
-            console.log("Registration ID: "+e.regid);
+            console.log("Registration ID: " + e.regid);
 
             break;
         case 'message':

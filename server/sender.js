@@ -9,8 +9,8 @@ var message = new gcm.Message({
     delayWhileIdle: true,
     timeToLive: 3,
     data: {
-        key1: 'message1',
-        key2: 'message2'
+        message: 'fuuuuu',
+        title: 'PickMeApp'
     }
 });
 
