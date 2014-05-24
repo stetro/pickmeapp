@@ -6,83 +6,66 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform, push) {
-    $ionicPlatform.ready(function() {
-        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-        // for form inputs)
-        if (window.StatusBar) {
-            // org.apache.cordova.statusbar required
-            StatusBar.styleDefault();
-        }
-        /*var pushNotification = window.plugins.pushNotification;
-        console.log("DO REGISTRATION");
-        pushNotification.register(
-            function(result) {
-                console.log(result);
-                console.log("REGISTRATION RESULT");
-            },
-            function() {
-                console.log("REGISTRATION ERROR");
-            }, {
-                "senderID": "248058524630",
-                "ecb": "onNotification"
-            });*/
-        var result = push.registerPush(function (result) {
-            if (result.type === 'registration') {
-                localStorage.setItem('device_id', result.id);
-                localStorage.setItem('device', result.device);
+    .run(function ($ionicPlatform, push) {
+        $ionicPlatform.ready(function () {
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+            // for form inputs)
+            if (window.StatusBar) {
+                // org.apache.cordova.statusbar required
+                StatusBar.styleDefault();
             }
-        });
-    });
-})
-
-.config(function($stateProvider, $urlRouterProvider) {
-    $stateProvider
-
-    .state('app', {
-        url: "/app",
-        abstract: true,
-        templateUrl: "templates/menu.html",
-        controller: 'AppCtrl'
-    })
-
-    .state('app.search', {
-        url: "/search",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/search.html"
-            }
-        }
-    })
-
-    .state('app.browse', {
-        url: "/browse",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/browse.html"
-            }
-        }
-    })
-        .state('app.playlists', {
-            url: "/playlists",
-            views: {
-                'menuContent': {
-                    templateUrl: "templates/playlists.html",
-                    controller: 'PlaylistsCtrl'
+            /*var pushNotification = window.plugins.pushNotification;
+             console.log("DO REGISTRATION");
+             pushNotification.register(
+             function(result) {
+             console.log(result);
+             console.log("REGISTRATION RESULT");
+             },
+             function() {
+             console.log("REGISTRATION ERROR");
+             }, {
+             "senderID": "248058524630",
+             "ecb": "onNotification"
+             });*/
+            var result = push.registerPush(function (result) {
+                if (result.type === 'registration') {
+                    localStorage.setItem('device_id', result.id);
+                    localStorage.setItem('device', result.device);
                 }
-            }
-        })
+            });
+        });
+    })
 
-    .state('app.single', {
-        url: "/playlists/:playlistId",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/playlist.html",
-                controller: 'PlaylistCtrl'
-            }
-        }
+    .config(function ($stateProvider, $urlRouterProvider) {
+        $stateProvider
+
+            .state('app', {
+                url: "/app",
+                abstract: true,
+                templateUrl: "templates/menu.html",
+                controller: 'AppCtrl'
+            })
+
+            .state('app.search', {
+                url: "/search",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/search.html"
+                    }
+                }
+            })
+
+            .state('app.buddyList', {
+                url: "/buddylist",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/bestBuddyList.html",
+                        controller: 'BuddyListCtrl'
+                    }
+                }
+            })
+
+        // if none of the above states are matched, use this as the fallback
+        $urlRouterProvider.otherwise('/app/search');
     });
-    // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/playlists');
-});
 
