@@ -4,9 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, push) {
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -14,7 +14,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             // org.apache.cordova.statusbar required
             StatusBar.styleDefault();
         }
-        var pushNotification = window.plugins.pushNotification;
+        /*var pushNotification = window.plugins.pushNotification;
         console.log("DO REGISTRATION");
         pushNotification.register(
             function(result) {
@@ -26,8 +26,13 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }, {
                 "senderID": "248058524630",
                 "ecb": "onNotification"
-            });
-
+            });*/
+        var result = push.registerPush(function (result) {
+            if (result.type === 'registration') {
+                localStorage.setItem('device_id', result.id);
+                localStorage.setItem('device', result.device);
+            }
+        });
     });
 })
 
