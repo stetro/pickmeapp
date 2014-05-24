@@ -86,34 +86,3 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     $urlRouterProvider.otherwise('/app/playlists');
 });
 
-
-
-///
-/// TODO: REFACTORING HERE
-/// Need to be global
-
-function onNotification(e) {
-    switch (e.event) {
-        case 'registered':
-
-            console.log("REGISTERED !!!");
-            console.log("Registration ID: " + e.regid);
-
-            break;
-        case 'message':
-            console.log("Message Received !!");
-            if (e.foreground) {
-                // In App Handling
-                console.log("foreground received");
-            } else {
-                if (e.coldstart) {
-                    // Coldstart
-                    console.log("coldstart received");
-                } else {
-                    // Background
-                    console.log("background received");
-                }
-            }
-            break;
-    }
-}
