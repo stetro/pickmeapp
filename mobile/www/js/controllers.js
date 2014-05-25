@@ -16,7 +16,7 @@ angular.module('starter.controllers', [])
         if(userName == null) {
             $scope.register = true;
             $location.path('/app/register');
-        } else if(request) {
+        } else if(request == true) {
             $scope.register = false;
             if(request.regid == phone.specs.regid) {
                 $scope.flag = "status";
