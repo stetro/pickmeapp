@@ -144,7 +144,7 @@ angular.module('starter.services', ['ngResource'])
                 response: {
                     method: 'GET',
                     params: {
-                        action: 'response', title: 'pickMeApp', message: 'See that smoke'
+                        action: 'response', title: 'pickMeApp', message: 'Saw that smoke'
                     }
                 }
 
@@ -168,6 +168,9 @@ angular.module('starter.services', ['ngResource'])
         };
         factory.status = function () {
             return push.status();
+        };
+        factory.respond = function (regid, own_regid) {
+            return push.response({regid: regid, own_regid : own_regid});
         };
         /*factory.httpSend = function (regid, phonenumber) {
             return pushHttp(regid, phonenumber);

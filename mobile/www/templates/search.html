@@ -1,4 +1,4 @@
-<ion-view title="Ping Them Buddies!!!">
+<ion-view title="{{ title }}">
 	<ion-nav-buttons side="left">
 		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 	</ion-nav-buttons>
@@ -24,6 +24,18 @@
 				<span class="item-note">{{ item.gps }} m.</span>
 				<span class="item-note"></span>
 			</a>
+		</ion-list>
+		<ion-list ng-switch-when="respond">
+
+			<div class="button-bar">
+				<button class="button button-block col-50 icon-left ion-android-friends pink" ng-click="respond('yes')">I'am in!</button>
+				<button class="button button-full col-50 icon-left ion-android-hand button-energized" ng-click="respond('no')">Not This Time</button>
+			</div>
+			<div class="button-bar">
+				<button class="button button-block col-50 icon-left ion-android-call button-positive" ng-click="respond('call')">Call</button>
+				<button class="button button-full col-50 icon-left ion-android-chat button-balanced" ng-click="respond('text')">Text</button>
+			</div>
+
 		</ion-list>
 
 	</ion-content>

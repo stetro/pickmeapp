@@ -13,3 +13,9 @@ textarea {
     margin-top: 15rem;
 }
 
+.pink {
+    border-color: rgb(190, 75, 153);
+    background-color: rgb(190, 75, 153);
+    color: #fff;
+}
+
