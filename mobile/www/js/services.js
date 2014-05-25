@@ -137,4 +137,35 @@ angular.module('starter.services', ['ngResource'])
             return pushHttp(regid, phonenumber);
         };
         return factory;
+    })
+    .factory('buddyList', function() {
+        var factory = {};
+        factory.buddies = [
+            {
+                name: 'Ziya',
+                distance: 2500,
+                area: 'Ehrenfeld'
+            },
+            {
+                name: 'Lars',
+                distance: 500,
+                area: 'Rudolfplatz'
+            },
+            {
+                name: 'Valerie',
+                distance: 100,
+                area: 'Nippes'
+            },
+            {
+                name: 'Ahmet',
+                distance: 5000,
+                area: 'Kalk'
+            },
+            {
+                name: 'Johnny',
+                distance: 40000,
+                area: 'Bonn'
+            }
+        ];
+        return factory;
     });

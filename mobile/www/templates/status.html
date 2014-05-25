@@ -1,0 +1,18 @@
+<ion-view title="Where Are Those Buddies!!!">
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+	<ion-content class="has-header">
+		<ion-refresher
+				pulling-text="Pull to refresh..."
+				on-refresh="doRefresh()">
+		</ion-refresher>
+		<ion-list>
+				<a class="item" href="#" ng-repeat="item in buddies | orderBy:'distance'">
+					<span>{{ item.name }}</span>
+					<span class="item-note">{{ item.distance }} km. / {{ item.area }}</span>
+					<span class="item-note"></span>
+				</a>
+		</ion-list>
+	</ion-content>
+</ion-view>

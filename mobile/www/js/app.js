@@ -56,6 +56,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 }
             })
 
+            .state('app.status', {
+                url: "/status",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/status.html",
+                        controller: "StatusCtrl"
+                    }
+                }
+            })
+
             .state('app.buddyList', {
                 url: "/buddylist",
                 views: {
