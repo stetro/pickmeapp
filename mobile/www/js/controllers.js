@@ -11,7 +11,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('SearchCtrl', function ($scope, $stateParams, $location, pushSender, buddyList, phone) {
+    .controller('SearchCtrl', function ($scope, $stateParams, $location, pushSender, buddyList, phone, request) {
         $scope.flag = true;
         /*if (localStorage.getItem('pushStatus') === 'sent') {
             //$location.path('/app/status');
@@ -34,7 +34,7 @@ angular.module('starter.controllers', [])
             $scope.$broadcast('scroll.refreshComplete');
             $scope.$apply();
         };
-        console.log($scope.request);
+        console.log(request);
     })
 
     .controller('StatusCtrl', function ($scope, buddyList) {

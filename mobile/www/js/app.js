@@ -54,7 +54,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                         controller: "SearchCtrl",
                         resolve: {
                             request: function(pushSender) {
-                                return pushSender.list;
+                                return pushSender.listRequests();
+                                /*return pushSender.Send({regid: 3423432432 ,gps: 23432423432});*/
 
                             }
                         }
