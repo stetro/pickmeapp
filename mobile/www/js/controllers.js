@@ -47,4 +47,8 @@ angular.module('starter.controllers', [])
 
         };
         $scope.buddies = buddyList.buddies;
+    })
+
+    .controller('SettingsCtrl', function ($scope, buddyList) {
+
     });

@@ -4,11 +4,14 @@
 	</ion-nav-buttons>
 	<ion-content class="has-header">
 		<ul class="list">
-			<li class="item item-checkbox" ng-repeat="buddy in buddies">
-				<label class="checkbox">
+			<li class="item item-toggle">
+				Disable push notifications
+				<label class="toggle toggle-assertive">
 					<input type="checkbox">
+					<div class="track">
+						<div class="handle"></div>
+					</div>
 				</label>
-				{{ buddy.name }}
 			</li>
 		</ul>
 	</ion-content>

@@ -144,27 +144,32 @@ angular.module('starter.services', ['ngResource'])
             {
                 name: 'Ziya',
                 distance: 2500,
-                area: 'Ehrenfeld'
+                area: 'Ehrenfeld',
+                phone: 017697591622
             },
             {
                 name: 'Lars',
                 distance: 500,
-                area: 'Rudolfplatz'
+                area: 'Rudolfplatz',
+                phone: 017697591622
             },
             {
                 name: 'Valerie',
                 distance: 100,
-                area: 'Nippes'
+                area: 'Nippes',
+                phone: 017697591622
             },
             {
                 name: 'Ahmet',
                 distance: 5000,
-                area: 'Kalk'
+                area: 'Kalk',
+                phone: 017697591622
             },
             {
                 name: 'Johnny',
                 distance: 40000,
-                area: 'Bonn'
+                area: 'Bonn',
+                phone: 017697591622
             }
         ];
         return factory;
