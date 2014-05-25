@@ -1,0 +1,21 @@
+<ion-view title="Every party needs a name...">
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+	<ion-content class="has-header" ng-switch on="flag">
+		<div>
+			<!--<label class="item item-input">
+				<textarea type="text" placeholder="Pick Me Up"></textarea>
+			  </label>-->
+			<div class="list-inset">
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Just a first name...</span>
+					<input type="text" placeholder="yep your name :)" ng-model="userName">
+				</label>
+				<div class="padding">
+					<button class="button button-full button-positive" ng-click="register()">I'am in!</button>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

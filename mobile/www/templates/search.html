@@ -2,29 +2,29 @@
 	<ion-nav-buttons side="left">
 		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 	</ion-nav-buttons>
-	<ion-content class="has-header" ng-switch on="flag">
-			<ion-refresher
-					pulling-text="Pull to refresh..."
-					on-refresh="doRefresh()">
-			</ion-refresher>
-			<div class="row row-center">
-				<!--<label class="item item-input">
-					<textarea type="text" placeholder="Pick Me Up"></textarea>
-				  </label>-->
-				<div class="col flag-div" ng-switch-default>
-					<button class="button button-block button-icon icon ion-cloud flag-button" ng-click="send()">
+	<ion-content class="has-header" ng-switch="flag">
+		<ion-refresher
+				pulling-text="Pull to refresh..."
+				on-refresh="doRefresh()">
+		</ion-refresher>
+		<div class="row row-center">
+			<!--<label class="item item-input">
+				<textarea type="text" placeholder="Pick Me Up"></textarea>
+			  </label>-->
+			<div class="col flag-div" ng-switch-when="push">
+				<button class="button button-block button-icon icon ion-cloud flag-button" ng-click="send()">
 
-					</button>
-					<p class="text-center">TOUCH THE SMOKE! GATHER THE TRIBE!</p>
-				</div>
+				</button>
+				<p class="text-center">TOUCH THE SMOKE! GATHER THE TRIBE!</p>
 			</div>
-			<ion-list ng-switch-when="false">
-				<a class="item" href="#" ng-repeat="item in buddies | orderBy:'distance'">
-					<span>{{ item.name }}</span>
-					<span class="item-note">{{ item.distance }} km. / {{ item.area }}</span>
-					<span class="item-note"></span>
-				</a>
-			</ion-list>
+		</div>
+		<ion-list ng-switch-when="status">
+			<a class="item" href="#" ng-repeat="item in buddies | orderBy:'gps'">
+				<span>{{ item.regid }}</span>
+				<span class="item-note">{{ item.gps }} m.</span>
+				<span class="item-note"></span>
+			</a>
+		</ion-list>
 
 	</ion-content>
 </ion-view>

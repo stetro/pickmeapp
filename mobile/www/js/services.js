@@ -22,7 +22,7 @@ angular.module('starter.services', ['ngResource'])
             return uagent.search('android') > -1 ? true : false;
         };
         this.specs = {
-            regid: '23123adasdsadsad',
+            regid: 'qweqwewqe',
             gps: '3123213123123,213123123'
         }
     })
@@ -130,6 +130,7 @@ angular.module('starter.services', ['ngResource'])
                 },
                 status: {
                     method: 'GET',
+                    isArray : true,
                     params: {
                         action: 'status'
                     }
@@ -164,6 +165,9 @@ angular.module('starter.services', ['ngResource'])
         };
         factory.listRequests = function () {
             return push.list();
+        };
+        factory.status = function () {
+            return push.status();
         };
         /*factory.httpSend = function (regid, phonenumber) {
             return pushHttp(regid, phonenumber);

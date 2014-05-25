@@ -56,8 +56,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                             request: function(pushSender) {
                                 return pushSender.listRequests();
                                 /*return pushSender.Send({regid: 3423432432 ,gps: 23432423432});*/
-
+                            },
+                            userName: function() {
+                                return localStorage.getItem('userName');
                             }
+
                         }
                     }
                 }
@@ -89,6 +92,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     'menuContent': {
                         templateUrl: "templates/settings.html",
                         controller: 'SettingsCtrl'
+                    }
+                }
+            })
+
+            .state('app.register', {
+                url: "/register",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/register.html",
+                        controller: 'RegisterCtrl'
                     }
                 }
             });
