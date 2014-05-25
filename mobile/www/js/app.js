@@ -51,7 +51,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 views: {
                     'menuContent': {
                         templateUrl: "templates/search.html",
-                        controller: "SearchCtrl"
+                        controller: "SearchCtrl",
+                        resolve: {
+                            request: function(pushSender) {
+                                return pushSender.list;
+
+                            }
+                        }
                     }
                 }
             })

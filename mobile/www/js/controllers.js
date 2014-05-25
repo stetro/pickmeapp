@@ -11,7 +11,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('SearchCtrl', function ($scope, $stateParams, $location, pushSender, buddyList) {
+    .controller('SearchCtrl', function ($scope, $stateParams, $location, pushSender, buddyList, phone) {
         $scope.flag = true;
         /*if (localStorage.getItem('pushStatus') === 'sent') {
             //$location.path('/app/status');
@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
             $scope.flag = false;
         }*/
         $scope.send = function() {
-            /*pushSender.Send({regid: 2312321321, phonenumber: 213213213123});*/
+            pushSender.Send({regid: phone.specs.regid ,gps: phone.specs.regid});
             //localStorage.setItem('pushStatus', 'sent');
             //$location.path('/app/status');
             $scope.flag = false;
@@ -34,6 +34,7 @@ angular.module('starter.controllers', [])
             $scope.$broadcast('scroll.refreshComplete');
             $scope.$apply();
         };
+        console.log($scope.request);
     })
 
     .controller('StatusCtrl', function ($scope, buddyList) {

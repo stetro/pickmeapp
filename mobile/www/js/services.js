@@ -21,6 +21,10 @@ angular.module('starter.services', ['ngResource'])
             var uagent = navigator.userAgent.toLowerCase();
             return uagent.search('android') > -1 ? true : false;
         };
+        this.specs = {
+            regid: '23123adasdsadsad',
+            gps: '3123213123123,213123123'
+        }
     })
 
     .factory('push', function ($rootScope, phone, cordovaReady) {
@@ -110,35 +114,64 @@ angular.module('starter.services', ['ngResource'])
     .factory('pushSender', function ($resource, $http) {
         var push = $resource(
             'http://pickmeapp.stetro.ursa.uberspace.de/index.php/:action',
-            null,
+            { },
             {
                 send: {
                     method: 'GET',
-                     params:{
-                     action: 'sendtest'
-                     }
+                    params: {
+                        action: 'push', title: 'pickMeApp', message: 'Smokes coming up...'
+                    }
+                },
+                list: {
+                    method: 'GET',
+                    params: {
+                        action: 'listrequests'
+                    }
+                },
+                status: {
+                    method: 'GET',
+                    params: {
+                        action: 'status'
+                    }
+                },
+                close: {
+                    method: 'GET',
+                    params: {
+                        action: 'close'
+                    }
+                },
+                response: {
+                    method: 'GET',
+                    params: {
+                        action: 'response', title: 'pickMeApp', message: 'See that smoke'
+                    }
                 }
+
             }
         );
-        var pushHttp = function(regid, phonenumber) {
-            $http.post('http://pickmeapp.stetro.ursa.uberspace.de/index.php/sendtest',{'regid':regid,'phonenumber':phonenumber}).then(function (resp) {
+        /*var pushHttp = function (regid, phonenumber) {
+            $http.post('http://pickmeapp.stetro.ursa.uberspace.de/index.php/sendtest', {'regid': regid, 'phonenumber': phonenumber}).then(function (resp) {
                 console.log('Success', resp);
                 // For JSON responses, resp.data contains the result
             }, function (err) {
                 console.error('ERR', err);
                 // err.status will contain the status code
             });
-        };
+        };*/
         var factory = {};
         factory.Send = function (regid, phonenumber) {
             return push.send({regid: regid, phonenumber: phonenumber});
         };
-        factory.httpSend = function (regid, phonenumber) {
-            return pushHttp(regid, phonenumber);
+        factory.listRequests = function () {
+            return push.list();
         };
+        /*factory.httpSend = function (regid, phonenumber) {
+            return pushHttp(regid, phonenumber);
+        };*/
         return factory;
     })
-    .factory('buddyList', function() {
+
+    .factory('buddyList', function () {
         var factory = {};
         factory.buddies = [
             {
