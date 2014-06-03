@@ -7,7 +7,8 @@ angular.module('starter.controllers', [])
         $scope.buddies = buddyList.buddies;
     })
 
-    .controller('PlaylistCtrl', function ($scope, $stateParams) {
+    .controller('PlaylistCtrl', function ($scope) {
+        $scope.ziya = 'ziya';
 
     })
 
